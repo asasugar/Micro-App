@@ -17,25 +17,15 @@ microApp.start({
                 return all.replace('/child/vite/', 'http://localhost:4007/child/vite/')
               })
             }
-
             return code
           }
         }
       ],
       // 解决create-react-app中sockjs-node报错的问题
-      'appname-react16': [{
+      'appname-react': [{
         loader(code) {
           if (process.env.NODE_ENV === 'development' && code.indexOf('sockjs-node') > -1) {
             code = code.replace('window.location.port', '4004')
-          }
-          return code
-        }
-      }],
-      // 解决create-react-app中sockjs-node报错的问题
-      'appname-react17': [{
-        loader(code) {
-          if (process.env.NODE_ENV === 'development' && code.indexOf('sockjs-node') > -1) {
-            code = code.replace('window.location.port', '4005')
           }
           return code
         }
