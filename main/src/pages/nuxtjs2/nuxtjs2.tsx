@@ -1,8 +1,8 @@
 /** @jsxRuntime classic */
 /** @jsx jsxCustomEvent */
 import jsxCustomEvent from '@micro-zoe/micro-app/polyfill/jsx-custom-event'
-import { useState } from 'react'
-import config from '../../config'
+import { useState } from 'react';
+import config from '../../config';
 
 const Nuxtjs2 = () => {
   const [microAppData, changeMicroAppData] = useState({msg: '来自基座的数据'})
@@ -39,7 +39,7 @@ const Nuxtjs2 = () => {
     <div>
       <micro-app
         name='appname-nuxtjs2'
-        url={`${config.nuxtjs2}/main-react17/app-nuxtjs2`}
+        url={`${config.nuxtjs2}/main/app-nuxtjs2`}
         ssr
         data={microAppData}
         onCreated={handleCreate}

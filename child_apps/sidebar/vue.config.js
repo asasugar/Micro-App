@@ -1,12 +1,12 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
   transpileDependencies: true,
-  outputDir: 'vue2',
-  publicPath: '/child/vue2/',
+  publicPath: '/child/sidebar/',
+  outputDir: 'sidebar',
   productionSourceMap: false,
   devServer: {
-    hot: false,
-    port: 4008,
+    hot: true,
+    port: 4006,
     open: false,
     headers: {
       'Access-Control-Allow-Origin': '*',

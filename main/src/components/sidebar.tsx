@@ -1,10 +1,10 @@
-import { useEffect } from 'react'
-import { useHistory } from 'react-router-dom'
-import microApp, { getActiveApps } from '@micro-zoe/micro-app'
-import config from '../config'
+import microApp, { getActiveApps } from '@micro-zoe/micro-app';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import config from '../config';
 
 const SideBar = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
 
   // 子应用sidebar通过pushState控制主应用跳转
   function pushState (appName: string, path: string, hash: string) {
@@ -18,7 +18,7 @@ const SideBar = () => {
       // child-vite 和 child-react17子应用为hash路由，这里拼接一下hash值
       hash && (path += `/#${hash}`)
       // 主应用跳转
-      history.push(path)
+      navigate(path)
     } else {
       let childPath = null
       // child-vite 和 child-react17子应用是hash路由，hash值就是它的页面地址，这里单独处理

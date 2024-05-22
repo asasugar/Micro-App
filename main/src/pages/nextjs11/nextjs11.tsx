@@ -1,8 +1,8 @@
 /** @jsxRuntime classic */
 /** @jsx jsxCustomEvent */
 import jsxCustomEvent from '@micro-zoe/micro-app/polyfill/jsx-custom-event'
-import { useState } from 'react'
-import config from '../../config'
+import { useState } from 'react';
+import config from '../../config';
 
 const Nextjs11 = () => {
   const [microAppData, changeMicroAppData] = useState({msg: '来自基座的数据'})
@@ -39,7 +39,7 @@ const Nextjs11 = () => {
     <div>
       <micro-app
         name='appname-nextjs11'
-        url={`${config.nextjs11}/main-react17/app-nextjs11`}
+        url={`${config.nextjs11}/main/app-nextjs11`}
         ssr
         disableScopecss
         data={microAppData}
