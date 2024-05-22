@@ -4,5 +4,5 @@
     "source.organizeImports": "never", // 避免被删除 import jsxCustomEvent from '@micro-zoe/micro-app/polyfill/jsx-custom-event'
     "source.fixAll.eslint": "explicit",
     "source.fixAll.stylelint": "explicit"
-  },
+  }
 }

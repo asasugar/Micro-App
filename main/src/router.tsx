@@ -3,6 +3,8 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import SideBar from './components/sidebar';
 import Home from './pages/home/home';
 const Vue2 = lazy(() => import(/* webpackChunkName: "vue2" */ './pages/vue2/vue2'));
+const Vite = lazy(() => import(/* webpackChunkName: "vite" */ './pages/vite/vite'));
+
 
 function App () {
   return (
@@ -17,6 +19,11 @@ function App () {
           <Route path="/app-vue2/*" element={(
             <Suspense fallback={<div>Loading...</div>}>
               <Vue2 />
+            </Suspense>
+          )} />
+          <Route path="/app-vite/*" element={(
+            <Suspense fallback={<div>Loading...</div>}>
+              <Vite />
             </Suspense>
           )} />
           <Route path="*" element={<Navigate to="/" replace />} />

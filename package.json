@@ -4,24 +4,27 @@
 	"description": "micro-app",
 	"main": "index.js",
 	"private": true,
+	"keywords": [
+    "micro-app",
+    "demo"
+  ],
 	"scripts": {
     "preinstall": "npx only-allow yarn",
 		"bootstrap": "yarn && npm-run-all --serial install:*",
 		"install:main": "cd main && yarn",
-		"install:child-vue2": "cd child_apps/vue2 && yarn",
     "install:child-sidebar": "cd child_apps/sidebar && yarn",
+		"install:child-vue2": "cd child_apps/vue2 && yarn",
+    "install:child-vite": "cd child_apps/vite && yarn",
 		"dev:main": "npm-run-all --parallel dev-main dev-child:*",
 		"dev-main": "cd main && yarn dev",
+    "dev-child:sidebar": "cd child_apps/sidebar && yarn dev",
 		"dev-child:vue2": "cd child_apps/vue2 && yarn dev",
-    "dev-child:sidebar": "cd child_apps/sidebar && yarn dev"
+    "dev-child:vite": "cd child_apps/vite && yarn dev"
 	},
 	"dependencies": {
 		"@micro-zoe/micro-app": "1.0.0-rc.5"
 	},
 	"devDependencies": {
 		"npm-run-all": "^4.1.5"
-	},
-	"engines": {
-    "node": ">=18"
-  }
+	}
 }

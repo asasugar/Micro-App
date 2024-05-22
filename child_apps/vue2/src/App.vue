@@ -1,19 +1,29 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" @click="onRouteChange">
+    <router-link to="/">Home</router-link> |
+    <router-link to="/page2">Page2</router-link>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from './components/HelloWorld.vue';
 
 export default {
   name: 'App',
   components: {
     HelloWorld
+  },
+  methods: {
+    // 子应用内部跳转时，通知侧边栏改变菜单状态
+    onRouteChange() {
+      if (window.eventCenterForAppNameVite) {
+        // 发送全局数据，通知侧边栏修改菜单展示
+        window.eventCenterForAppNameVite.setGlobalData({ name: 'child-vue' });
+      }
+    }
   }
-}
+};
 </script>
 
 <style>
