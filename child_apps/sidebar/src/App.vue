@@ -25,7 +25,7 @@
         <template slot="title">
           <span class='submenu-text'>child-vite</span>
         </template>
-        <el-menu-item index="/app-vue2">
+        <el-menu-item index="/app-vite">
           <span class='menu-item-text'>vite-home</span>
         </el-menu-item>
         <el-menu-item index="/app-vite/page2">
@@ -76,12 +76,12 @@ export default {
         hash = location.hash.split('?')[0]
       }
       // 兼容 child-vite 和 child-react17 子应用，因为它们是hash路由
-      // if (
-      //   (this.activeIndex === '/app-vite' || this.activeIndex === '/app-react17') &&
-      //   hash.includes('page2')
-      // ) {
-      //   this.activeIndex += hash.replace(/^#/, '')
-      // }
+      if (
+        (this.activeIndex === '/app-vite' || this.activeIndex === '/app-react17') &&
+        hash.includes('page2')
+      ) {
+        this.activeIndex += hash.replace(/^#/, '')
+      }
 
       // 去除斜线后缀，如：/app-vue2/ 转换为 /app-vue2
       if (this.activeIndex !== '/') {
@@ -95,12 +95,18 @@ export default {
       if (this.microAppData) {
         // 因为 child-vite 和 child-react17 子应用是hash路由，所以需要传递hash值
         let hash = null
+        if (index === '/app-vite/page2' || index === '/app-react17/page2') {
+          const pathArr = index.split('/')
+          index = '/' + pathArr[1]
+          hash = '/' + pathArr[2]
+        }
 
         // 获取子应用appName
         const appName = indexPath[0]
 
         // 控制基座跳转页面，并渲染子应用
         this.microAppData.pushState(appName, index, hash)
+        console.log('%c [ appName, index, hash ]-104', 'font-size:13px; background:pink; color:#bf2c9f;', appName, index, hash)
       }
     },
   }

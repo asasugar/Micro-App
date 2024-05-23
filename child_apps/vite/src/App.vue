@@ -1,5 +1,5 @@
 <template>
-  <div id="app" @click="onRouteChange">
+  <div id="public-links" @click="onRouteChange">
     <router-link to="/">Home</router-link> |
     <router-link to="/page2">Page2</router-link>
     <router-view></router-view>

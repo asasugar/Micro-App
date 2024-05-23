@@ -1,5 +1,5 @@
 import { createApp, App as AppInstance } from 'vue'
-import { createRouter, createWebHistory, RouterHistory, Router } from 'vue-router'
+import { createRouter, createWebHashHistory, RouterHistory, Router } from 'vue-router'
 import App from './App.vue'
 import routes from './router'
 
@@ -24,7 +24,7 @@ function handleMicroData (router: Router) {
       console.log('child-vite addDataListener:', data)
 
       if (data.path && typeof data.path === 'string') {
-        // data.path = data.path.replace(/^#/, '')
+        data.path = data.path.replace(/^#/, '')
         // 当基座下发path时进行跳转
         if (data.path && data.path !== router.currentRoute.value.path) {
           router.push(data.path as string)
@@ -40,14 +40,14 @@ function handleMicroData (router: Router) {
 }
 
 
-// ----------分割线---默认模式------两种模式任选其一-----放开注释即可运行------- //
+// ----------分割线---umd模式------两种模式任选其一-------------- //
 let app: AppInstance | null = null
 let router: Router | null = null
 let history: RouterHistory | null = null
 // 将渲染操作放入 mount 函数
 function mount () {
    // __MICRO_APP_BASE_ROUTE__ 为micro-app传入的基础路由
-  history = createWebHistory('/child/vite/');
+  history = createWebHashHistory();
   router = createRouter({
     history,
     routes,
@@ -80,6 +80,9 @@ function unmount () {
 if (window.__MICRO_APP_BASE_APPLICATION__) {
   // @ts-ignore
   window['micro-app-appname-vite'] = { mount, unmount }
+  // @ts-ignore
+  console.log(222222,window['micro-app-appname-vite'])
+
 } else {
   // 非微前端环境直接渲染
   mount()

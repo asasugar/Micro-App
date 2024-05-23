@@ -43,10 +43,9 @@ const Vite = () => {
       <micro-app
         name='appname-vite'
         url={`${config.vite}/child/vite/`}
-        baseroute='/main/app-vite'
+        data={microAppData}
         inline
         disablesandbox
-        data={microAppData}
         onCreated={handleCreate}
         onBeforemount={handleBeforeMount}
         onMounted={handleMount}

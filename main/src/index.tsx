@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import Router from './router';
 
 microApp.start({
+  // 'disable-memory-router': true, // 关闭虚拟路由
   plugins: {
     modules: {
       'appname-vite': [
