@@ -92,8 +92,6 @@ export default {
     },
     // 用户点击菜单时控制基座应用跳转
     select (index, indexPath) {
-      console.log('%c [ index ]-101', 'font-size:13px; background:pink; color:#bf2c9f;', index, indexPath)
-
       if (this.microAppData) {
         // 因为 child-vite 和 child-react17 子应用是hash路由，所以需要传递hash值
         let hash = null
@@ -102,12 +100,9 @@ export default {
           index = '/' + pathArr[1]
           hash = '/' + pathArr[2]
         }
-        console.log('%c [ index ]-102', 'font-size:13px; background:pink; color:#bf2c9f;', index, hash)
-
 
         // 获取子应用appName
         const appName = indexPath[0]
-        // this.microAppData.pushState('appname-vite', '/app-vite/page2', null)
 
         // 控制基座跳转页面，并渲染子应用
         this.microAppData.pushState(appName, index, hash)

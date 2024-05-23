@@ -30,7 +30,7 @@ function handleMicroData (router: Router) {
           router.push(data.path as string)
         }
       }
-    })
+    }, true)
 
     // 向基座发送数据
     setTimeout(() => {

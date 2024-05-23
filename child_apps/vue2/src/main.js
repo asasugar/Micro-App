@@ -28,7 +28,7 @@ function handleMicroData () {
       if (data.path && data.path !== router.currentRoute.path) {
         router.push(data.path)
       }
-    })
+    }, true)
 
     // 向基座发送数据
     setTimeout(() => {

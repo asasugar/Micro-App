@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import Router from './router';
 
 microApp.start({
-  'router-mode': 'pure',
+  // 'router-mode': 'pure',
   plugins: {
     modules: {
       'appname-vite': [
