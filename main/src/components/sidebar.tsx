@@ -16,7 +16,7 @@ const SideBar = () => {
     */
     if (!getActiveApps().includes(appName)) {
       // child-vite 和 child-react17子应用为hash路由，这里拼接一下hash值
-      hash && (path += `/#${hash}`)
+      // hash && (path += `/#${hash}`)
       // 主应用跳转
       navigate(path)
     } else {

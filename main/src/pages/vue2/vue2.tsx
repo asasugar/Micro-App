@@ -40,7 +40,6 @@ const Vue2 = () => {
       <micro-app
         name='appname-vue2'
         url={`${config.vue2}/child/vue2/`}
-        baseroute='/main/app-vue2'
         data={microAppData}
         onCreated={handleCreate}
         onBeforemount={handleBeforeMount}

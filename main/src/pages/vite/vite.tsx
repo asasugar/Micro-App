@@ -44,8 +44,7 @@ const Vite = () => {
         name='appname-vite'
         url={`${config.vite}/child/vite/`}
         data={microAppData}
-        inline
-        disablesandbox
+        iframe // 新写法，disablesanbox旧写法
         onCreated={handleCreate}
         onBeforemount={handleBeforeMount}
         onMounted={handleMount}

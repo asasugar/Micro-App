@@ -1,5 +1,5 @@
 import { createApp, App as AppInstance } from 'vue'
-import { createRouter, createWebHashHistory, RouterHistory, Router } from 'vue-router'
+import { createRouter, createWebHistory, RouterHistory, Router } from 'vue-router'
 import App from './App.vue'
 import routes from './router'
 
@@ -47,7 +47,7 @@ let history: RouterHistory | null = null
 // 将渲染操作放入 mount 函数
 function mount () {
    // __MICRO_APP_BASE_ROUTE__ 为micro-app传入的基础路由
-  history = createWebHashHistory();
+  history = createWebHistory('/child/vite/');
   router = createRouter({
     history,
     routes,

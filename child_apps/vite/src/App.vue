@@ -1,7 +1,7 @@
 <template>
   <div id="public-links" @click="onRouteChange">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/page2">Page2</router-link>
+    <router-link to="/">Vite-Home</router-link> |
+    <router-link to="/page2">Vite-Page2</router-link>
     <router-view></router-view>
   </div>
 </template>
